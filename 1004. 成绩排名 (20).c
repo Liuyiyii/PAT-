@@ -29,8 +29,41 @@ Mike CS991301
 Joe Math990112
 */
 
+//代码
+#include <stdio.h>
+int main(){
+	struct student{
+		int score;
+		char name[15];
+		char number[15];
+	}stu[1000];
+	
+	int n,i,max,min;
+	int maxscore = -1;
+	int minscore = 101;
+	
+	scanf("%d",&n);
+	
+	for(i = 0; i < n; i++){
+		scanf("%s %s %d",&stu[i].name, &stu[i].number, &stu[i].score);
+		if(stu[i].score < minscore){
+			minscore = stu[i].score; 
+			min = i;
+		}
+		if(stu[i].score > maxscore){
+			maxscore = stu[i].score; 
+			max = i;
+		}
 
-//错误代码 第二个测试点没过
+	}
+	
+	printf("%s %s\n",stu[max].name,stu[max].number);
+	printf("%s %s",stu[min].name,stu[min].number);
+
+	return 0;	
+}
+
+//错误代码 第二个测试点没过,判断方法过于繁琐
 #include <stdio.h>
 int main(){
 	char name[15],number[15];
